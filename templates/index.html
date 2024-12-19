@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Joke Generator</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>😂 Random Joke Generator</h1>
+        <div id="joke" class="joke-box">
+            Click the button below to get a joke!
+        </div>
+        <button id="get-joke">Get Another Joke</button>
+    </div>
+    <script>
+        document.getElementById('get-joke').addEventListener('click', async () => {
+            const response = await fetch('/api/get_joke');
+            const data = await response.json();
+            const jokeBox = document.getElementById('joke');
+            if (data.error) {
+                jokeBox.textContent = data.error;
+            } else {
+                jokeBox.textContent = `${data.setup} ${data.punchline}`;
+            }
+        });
+    </script>
+</body>
+</html>
