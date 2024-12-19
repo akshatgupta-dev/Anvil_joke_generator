@@ -32,7 +32,7 @@ random-joke-generator/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/<your-username>/random-joke-generator.git
+   git clone https://github.com/akshatgupta-dev/random-joke-generator.git
    cd random-joke-generator
    ```
 
